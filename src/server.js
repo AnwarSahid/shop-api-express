@@ -25,6 +25,7 @@ db.sequelize
     .sync({ force: true }) //drop table
     .then(() => {
         seed.userSeed()
+        seed.categorySeed()
 
         console.log("berhasil");
     })
