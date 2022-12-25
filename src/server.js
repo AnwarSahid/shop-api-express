@@ -30,13 +30,9 @@ db.sequelize
     })
 
 
-
-
 app.get('/', (req, res) => {
     res.send('hello word')
 })
-
-
 
 
 const PORT = process.env.APP_PORT //mengambil port dari env
