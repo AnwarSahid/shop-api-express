@@ -18,12 +18,28 @@ app.use(express.urlencoded({
     extended: true
 }))
 
+// manggil semua model. model dari user dan miggrasi
+const db = require('./models/model')
+db.sequelize
+    .sync({ force: true }) //drop table
+    .then(() => {
+        console.log("berhasil");
+    })
+    .catch((err) => {
+        console.error(`connection failed`);
+    })
+
+
+
 
 app.get('/', (req, res) => {
     res.send('hello word')
 })
 
-const PORT = process.env.APP_PORT
+
+
+
+const PORT = process.env.APP_PORT //mengambil port dari env
 
 app.listen(PORT, () => {
     console.log(`server running di ${PORT}`);
