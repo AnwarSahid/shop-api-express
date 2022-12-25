@@ -20,13 +20,16 @@ app.use(express.urlencoded({
 
 // manggil semua model. model dari user dan miggrasi
 const db = require('./models/model')
+const seed = require('./models/seeds/seeder')
 db.sequelize
     .sync({ force: true }) //drop table
     .then(() => {
+        seed.userSeed()
+
         console.log("berhasil");
     })
     .catch((err) => {
-        console.error(`connection failed`);
+        console.error(`connection failed + ${err}`);
     })
 
 
