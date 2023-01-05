@@ -1,7 +1,8 @@
-const db = require('../models/model')
 const config = require('../config/auth')
+const db = require('../models/model')
 const User = db.user
 const bcrypt = require('bcryptjs')
+
 
 
 exports.register = (req, res) => {
@@ -9,7 +10,7 @@ exports.register = (req, res) => {
         name: req.body.name,
         phone: req.body.phone,
         email: req.body.email,
-        password: bcrypt.hashSync(req.body.password)
+        password: bcrypt.hashSync(req.body.password),
     })
         .then((user) => {
             res.status(201).json({

@@ -36,8 +36,13 @@ db.sequelize
 
 
 app.get('/', (req, res) => {
-    res.send('hello word')
+    res.json({
+        massage: "server is running",
+        version: "shop versi beta"
+    })
 })
+
+require('./routes/auth.route')(app)
 
 
 const PORT = process.env.APP_PORT //mengambil port dari env
