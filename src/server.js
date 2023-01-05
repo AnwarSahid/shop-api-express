@@ -22,10 +22,11 @@ app.use(express.urlencoded({
 const db = require('./models/model')
 const seed = require('./models/seeds/seeder')
 db.sequelize
-    .sync({ force: true }) //drop table
+    // .sync({ force: true }) 
+    .sync()
     .then(() => {
-        seed.userSeed()
-        seed.categorySeed()
+        // seed.userSeed()
+        // seed.categorySeed()
 
         console.log("berhasil");
     })
