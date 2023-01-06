@@ -44,6 +44,7 @@ app.get('/', (req, res) => {
 
 require('./routes/auth.route')(app)
 require('./routes/profile.route')(app)
+require('./routes/product.route')(app)
 
 
 const PORT = process.env.APP_PORT //mengambil port dari env
