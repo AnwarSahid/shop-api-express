@@ -93,3 +93,27 @@ exports.update = (req, res) => {
         })
     });
 }
+
+exports.delete = (req, res) => {
+    const id = req.params.id
+
+    Product.destroy({
+        where: { id: id }
+    }).then((num) => {
+        if (num == 1) {
+            res.status(200).json({
+                message: "data successfuly deleted",
+                num: num
+            })
+        } else {
+            res.status(400).json({
+                message: "data cannot deleted",
+                num: num
+            })
+        }
+    }).catch((err) => {
+        res.status(500).json({
+            message: err.message
+        })
+    });
+}
