@@ -14,9 +14,10 @@ userIsExists = (req, res, next) => {
 
             return
         }
+        next()
     })
 }
 
 module.exports = {
-    userIsExists,
+    userIsExists
 }
